@@ -22,10 +22,13 @@ class Solution {
             fast = fast->next->next;
             if(slow==fast){
                 int count = 1;
-                Node* temp = slow;
-                while(temp->next!=slow){
-                  temp =   temp->next;
+               // Node* temp = slow;
+               slow = slow->next;
+               // while(temp->next!=slow){
+               while(slow!=fast){
+                 // temp =   temp->next;
                   count++;
+                  slow= slow->next;
                 }
                 return count;
             }
