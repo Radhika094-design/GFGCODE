@@ -7,19 +7,24 @@ struct Node
     Node* right;
 }; */
 
+// Class Solution
 class Solution {
   public:
-    int helper(Node* root) {
-        if (root == nullptr) return 0;
-
-        // If this node is a leaf node
-        if (root->left == nullptr && root->right == nullptr) {
-            return 1;
+    // Function to count the number of leaf nodes in a binary tree.
+    void count(int& ans ,Node* root ){
+        if(root==nullptr)return;
+        if(root->left==nullptr && root->right==nullptr){
+            ans++;
+            return;
         }
-        return helper(root->left) + helper(root->right);
+        count(ans,root->left);
+        count(ans,root->right);
     }
-
     int countLeaves(Node* root) {
-        return helper(root);
+        // write code here
+        int ans = 0 ; 
+        count(ans,root);
+        return ans;
+        
     }
 };
